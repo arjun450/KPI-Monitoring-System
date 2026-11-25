@@ -1,0 +1,63 @@
+# ============================================================
+# KPI Alert Thresholds Configuration
+# Adjust these values based on stakeholder-defined targets.
+# ============================================================
+
+kpis:
+  connection_rate_pct:
+    warning:  50.0    # below this % → Warning
+    critical: 40.0    # below this % → Critical
+    unit: "%"
+    description: "Percentage of calls that were answered"
+
+  conversion_rate_pct:
+    warning:  5.0
+    critical: 3.0
+    unit: "%"
+    description: "Percentage of leads that converted to sales"
+
+  avg_cac:
+    warning:  400.0   # above this ₹ → Warning
+    critical: 500.0   # above this ₹ → Critical
+    unit: "INR"
+    description: "Average Customer Acquisition Cost"
+    direction: "above"   # alert when ABOVE threshold
+
+  roas:
+    warning:  2.0
+    critical: 1.0
+    unit: "x"
+    description: "Return on Advertising Spend (Revenue / Ad Spend)"
+
+  revenue_drop_pct:
+    warning:  10.0    # MoM drop >10% → Warning
+    critical: 20.0    # MoM drop >20% → Critical
+    unit: "%"
+    description: "Month-over-month revenue decline"
+    direction: "above"
+
+  data_freshness_hours:
+    warning:  12.0
+    critical: 24.0
+    unit: "hours"
+    description: "Hours since last data update"
+    direction: "above"
+
+# ─── Reporting ───────────────────────────────────────────────
+reporting:
+  daily_report_hour: 8        # Generate report at 8:00 AM
+  email_enabled: false        # Set true and configure SMTP to enable
+  smtp_host: "smtp.gmail.com"
+  smtp_port: 587
+  sender_email: "kpi_system@yourcompany.com"
+  recipient_emails:
+    - "manager@yourcompany.com"
+    - "operations@yourcompany.com"
+
+# ─── Database ────────────────────────────────────────────────
+database:
+  host: "localhost"
+  port: 5432
+  name: "kpi_monitoring"
+  user: "postgres"
+  # password stored in .env file — never hardcode here

@@ -1,0 +1,18 @@
+# Git ignore file
+.env
+*.db
+*.db-journal
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+reports/*.html
+reports/*.pdf
+reports/pipeline.log
+data/raw/*.csv
+data/processed/
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
